@@ -1,0 +1,44 @@
+
+@import "abstracts/**/*.scss";
+
+body::before {
+  background-color: rgba(0, 0, 0, .8);
+  bottom: 0;
+  color: #fff;
+  content: var(--size);
+  font-family: monospace;
+  font-size: .75rem;
+  padding: .25em .5em;
+  position: fixed;
+  right: 0;
+  z-index: 101;
+}
+
+@each $ID, $limits in $cn-breakpoints {
+  $media: ();
+  $debug_str: ("@#{$ID}");
+
+  @each $name, $value in $limits {
+    $media: append($media, "(#{$name}-width: #{$value})");
+
+    @if ($name == "min") {
+      $debug_str: prepend($debug_str, "#{$value} ≥");
+    } @else {
+      $debug_str: append($debug_str, "≥ #{$value}");
+    }
+  }
+
+  $media: to-string($media, " and ");
+  $debug_str: to-string($debug_str, " ");
+
+  @media #{$media} { body { --size: "#{$debug_str}"; } }
+}
+
+
+[grid-debug] {
+  background-image: linear-gradient(to right, transparent #{$cn-grid-columnGap}, rgba(250, 0, 150, .2) #{$cn-grid-columnGap}) !important;
+  background-position: (-0.5 * $cn-grid-columnGap) 0 !important;
+/*background-size: calc((100% + #{$cn-grid-columnGap}) * 1 / 12) !important;*/
+  background-size: calc(100% * 1 / 12) !important;
+  background-clip: content-box !important;
+}

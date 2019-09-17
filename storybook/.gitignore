@@ -1,0 +1,15 @@
+# OS or Editor files
+*.sublime-*
+.idea
+._*
+.DS_Store
+Thumbs.db
+
+# Always-ignore folders
+node_modules
+.pug-cache
+.pug-temp
+.sass-cache
+
+#
+*.bkp

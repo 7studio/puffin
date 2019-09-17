@@ -1,0 +1,76 @@
+include /abstracts/functions.pug
+include /abstracts/mixins.pug
+include /abstracts/partials.pug
+
+-
+    var myGlobalVar = "my global variable !";
+
+
+block variables
+
+doctype html
+- var lang = lang || site.data.lang || 'fr';
+- var dir = dir || site.data.dir || 'ltr';
+html(
+    lang= lang
+    dir= dir
+    class="no-js"
+)
+    head
+        - var title = title || 'Default title'
+        - var description = description || site.data.description || 'Default description'
+
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content=description)
+
+        title #{site.data.title} - #{title}
+
+        script.
+            (function(html){html.className=html.className.replace(/\bno-js\b/,"js")})(document.documentElement)
+
+        block styles
+            link(rel="stylesheet" href="assets/styles/style.css")
+            link(rel="stylesheet" href="assets/styles/debug.css")
+
+    body
+        <!--[if IE]>
+        style.
+            #BrowsersAlert{margin:0 0 1px;border:3px solid #dfd8c2;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#fff9ea}#BrowsersAlert a{color:#4183c4;text-decoration:underline}#BrowsersAlert a:hover,#BrowsersAlert a:focus{text-decoration:none}
+        #BrowsersAlert
+            strong L’utilisation d’Internet Explorer <![if IE 7]>7<![endif]><![if IE 8]>8<![endif]><![if IE 9]>9<![endif]> n’est plus recommandée.
+            br
+            .
+                #{site.data.title} ne garantit plus l’ouverture correcte de son site web via le navigateur Internet Explorer <![if IE 7]>7<![endif]><![if IE 8]>8<![endif]><![if IE 9]>9<![endif]> et ses versions antérieures.<br>Notre site web est cependant toujours consultable, mais certaines fonctionnalités pourraient ne pas fonctionner comme elles le devraient.<br>Face à cela, #{site.data.title} recommande à ses visiteurs de mettre à jour leur navigateur. Pour plus d’informations, consultez&nbsp;: <a href="https://www.whatbrowser.org/" target="_blank" rel="nofollow">whatbrowser.org</a> - un site géré par Google.
+        <![endif]-->
+        noscript
+            style.
+                #NoscriptAlert{margin:0 0 1px;border:3px solid #c9d6e3;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#f7fafd}
+            #NoscriptAlert
+                strong Pour une meilleure consultation, activez JavaScript.
+                br
+                .
+                    Il semble que JavaScript soit désactivé ou ne soit pas pris en charge.
+                br
+                .
+                    Pour une meilleure consultation de notre site, nous vous invitons à activer JavaScript dans votre navigateur.
+
+        .cn-u-hidden
+            include ../../../dist/assets/media/svgs/spr-icons.svg
+
+        .cn-Site
+            include /header.pug
+
+            main.cn-Body(role="main")
+                .cn-Body__inner
+
+                    block modal
+
+            include /footer.pug
+
+        block toaster
+
+        block scripts
+            script(src="assets/vendor/svgxuse/svgxuse.min.js")
+            script(src="assets/scripts/script.js")

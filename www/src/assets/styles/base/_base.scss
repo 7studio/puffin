@@ -1,0 +1,303 @@
+/*
+ * @base
+ *
+ * Réinitialisation de l'apparence des éléments HTML
+ * ===
+ *
+ * Ne nous embarassons pas avec des choses inutiles !
+ *
+ * ## Ressources
+ *
+ * - http://tantek.com/log/2004/undohtml.css
+ * - http://meyerweb.com/eric/tools/css/reset/reset.css
+ */
+
+
+
+/*
+ * 1. Évite tout problème de barre de défilement qui apparaissent puis
+ *    disparaissent dans un environnement dynamique.
+ * 2. Spécifie de façon arbitraire une famille de fontes générique.
+ * 3. Garde la même taille de texte après un changement d'orientation,
+ *    tout en autorisant l'utilisateur à zoomer s'il en a besoin.
+ */
+html {
+  font-family: sans-serif; /* 2 */
+  overflow-y: scroll; /* 1 */
+  text-size-adjust: 100%; /* 3 */
+}
+
+/*
+ * 1. Spécifie de façon arbitraire certaines bases.
+ *    cf. :
+ *    - https://github.com/h5bp/html5-boilerplate/pull/1343
+ *    - https://github.com/10up/sanitize.css/issues/42
+ */
+body {
+  background-color: #fff; /* 1 */
+  color: #000; /* 1 */
+}
+
+/*
+ * 1. Aide les navigateurs à appliquer une taille de police identique
+ *    à la famille de polices `monospace` quel que soit le cas d'utilisation.
+ *    cf. :
+ *    - http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ *    - http://neugierig.org/software/chromium/notes/2009/04/monospace-fonts.html
+ * 2. Permet à IE de suivre correctement le fonctionnement introduit par `1` dans
+ *    le cas particulier où aucune taille de police n'aurait été défini.
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, sans-serif; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/*
+ * 1. Définit la hauteur de la ligne à un pixel.
+ */
+hr {
+  border-style: solid;
+  border-width: 1px 0 0; /* 1 */
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+table,
+figure {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+blockquote,
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+/*
+ * 1. Supprime les bordures définies dans le fichier `html.css`.
+ */
+th,
+td {
+  border: 0; /* 1 */
+  padding: 0;
+}
+
+/*
+ * 1. Prend la couleur de son élément parent.
+ */
+a {
+  color: inherit; /* 1 */
+  text-decoration: none;
+}
+
+/*
+ * 1. Retire l'espace indésirable sous les éléments HTML
+ *    (`<img>`, `<iframe>`, etc) lorsque ces derniers sont
+ *    le seul contenu d'un autre élément HTML.
+ *    cf. : http://www.alsacreations.com/astuce/lire/52-espaces-sous-les-images.html
+ */
+img,
+iframe,
+object,
+svg,
+audio,
+video {
+  vertical-align: bottom; /* 1 */
+}
+
+/*
+ * 1.
+ */
+svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+iframe {
+  border: 0;
+}
+
+dialog {
+  background: 0;
+  border: 0;
+  color: inherit;
+  height: auto;
+  left: auto;
+  padding: 0;
+  position: static;
+  right: auto;
+}
+dialog[open] {
+  display: block;
+}
+
+/*
+ * 1. Ne dessine pas les contours des éléments ne pouvant pas
+ *    recevoir le focus au clavier ou les éléments recevant le focus
+ *    par programmation.
+ */
+[tabindex="-1"]:focus {
+  outline: none !important; /* 1 */
+}
+
+:lang(fr) > q,
+blockquote:lang(fr) {
+  quotes: '«\0a0' '\0a0»' '“' '”';
+}
+
+/*
+ * 1.
+ */
+fieldset {
+  border: 0;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0; /* 1 */
+  padding: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell; /* 1 */
+}
+
+/*
+ * 1. Utilise un même modèle de boite pour tous les éléments d'un formulaire.
+ *    Par défaut, seul l'élément HTML `<select>` a pour valeur `border-box`.
+ * 2. Les coins arrondis par défaut dans iOS non merci !
+ * 3. Définit de façon arbitraire les marges intérieures des éléments HTML.
+ *    NOTE : Firefox semble appliquer des marges différentes lorsqu'on
+ *    applique la déclaration CSS suivante : `border-style: solid;`.
+ * 4. Hérite de la taille et famille de la police définies par
+ *    le contexte (élément parent).
+ * 5. …
+ * 6. Applique une image de fond (gif de 1x1 transparent) pour éviter
+ *    l'ombre portée interne dans iOS. `{ box-shadow: none; }` ne suffit pas.
+ */
+[type=text],
+[type=password],
+[type=email],
+[type=tel],
+[type=url],
+[type=search],
+select,
+textarea {
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==); /* 6 */
+  box-sizing: border-box; /* 1 */
+  border: 1px solid;
+  border-radius: 0; /* 2 */
+  font-size: inherit; /* 4 */
+  font-family: inherit; /* 4 */
+  line-height: normal; /* 5 */
+  padding: 1px; /* 3 */
+}
+
+/*
+ * 1. Contient la largeur de l'élément dans son contenant même si
+ *    ce dernier dispose d'une valeur qui le pousserait à être plus grand.
+ * 2. Loin d'être la meilleure solution, il s'agit de l'unique façon de
+ *    retirer les coins arrondis dans Safari.
+ *    Il est fortement recommadé d'essayer de rétablir l'aspect de l'élément HTML `<select>`
+ *    comme dans l'exemple suivant : http://codepen.io/7studio/pen/jWbdRa
+ */
+select {
+  appearance: none; /* 2 */
+  max-width: 100%; /* 1 */
+}
+
+/*
+ * 1. Permet à un label adjacent de ne pas être aligné avec le bas
+ *    de l'élément HTML `<textarea>`.
+ * 2. Réduit la possibilité de redimensionner l'élément dans le sens vertical.
+ */
+textarea {
+  resize: vertical; /* 2 */
+  vertical-align: text-top; /* 1 */
+}
+
+/*
+ * 1. Garde-fou pour le cas (possible mais stupide) suivant :
+ *    `input { display: block; }`.
+ *    cf. : http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css#L410
+ */
+[type=hidden] {
+  display: none !important; /* 1 */
+}
+
+/*
+ * 1. Les coins arrondis par défaut dans iOS non merci !
+ *    Sauf que, cette déclaration retire tous les syles de l'apparence d'un bouton
+ *    aux éléments HTML `<input>`.
+ *    Pour un rendu homogène, il faut appliquer une image de fond (gif de 1x1 transparent)
+ *    aux éléments HTML `<button>` pour retirer également tous les styles.
+ */
+button,
+[type=reset],
+[type=submit],
+[type=button] {
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==); /* 1 */
+  border-radius: 0; /* 1 */
+  line-height: inherit;
+}
+
+/*
+ * 1.
+ * 2.
+ */
+[type=search] {
+  appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+ * 1.
+ */
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  display: none;
+}
+
+/*
+ * 1.
+ */
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}

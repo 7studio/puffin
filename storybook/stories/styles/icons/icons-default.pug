@@ -1,0 +1,26 @@
+include /abstracts/functions.pug
+include /abstracts/mixins.pug
+
+.sb-Root
+    h1.sb-Heading.sb-Heading--large Icons
+    
+    h2.sb-Heading.sb-Heading--medium Feather icons
+    ul.sb-Grid.sb-Grid--6cols.sb-u-mb-4
+        each id in styles.icons
+            li.sb-Grid__item
+                .sb-Icon
+                    .sb-Icon__media
+                        svg(width="2em" height="2em")
+                            use(xlink:href=icon_loader('svgs/spr-icons.svg', id))
+                    .sb-Icon__name!= id
+    
+    h2.sb-Heading.sb-Heading--medium Custom icons
+    ul.sb-Grid.sb-Grid--6cols.sb-u-mb-4
+        each id in styles['custom-icons']
+            li.sb-Grid__item
+                .sb-Icon
+                    .sb-Icon__media
+                        svg(width="2em" height="2em")
+                            use(xlink:href=icon_loader('svgs/spr-icons.svg', id))
+                    .sb-Icon__name!= id
+

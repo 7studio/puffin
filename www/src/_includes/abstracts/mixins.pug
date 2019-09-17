@@ -1,0 +1,50 @@
+//-
+    Returns ...
+    @param {String} title -
+    @param {String} look -
+    @param {Number} percent -
+    @param {String} type -
+    @returns {String}
+mixin gauge(title, look, percent = 0, type = '', debug = false)
+    -
+        const width = 200;
+        const stroke_width = 7;
+
+        const center = width / 2;
+        const radius = (width / 2) - (stroke_width / 2);
+        const stroke_dasharray = (((3.14159265359 * radius) / 100) * percent).toString().replace(/\./g, ',');
+        const max_stroke_dasharray = (((3.14159265359 * radius) / 100) * 100).toString().replace(/\./g, ',');
+
+        const debug_json = {'width':width, 'radius':radius, 'stroke_dasharray':stroke_dasharray};
+
+        const selector = 'cn-Gauge';
+        let modifiers = [
+            !debug ? type : false
+        ].filter(m => m.length);
+        let classes = [].concat(selector, modifiers.map(m => `${selector}--${m}`));
+
+    div(class=classes data-cn-debug=debug?debug_json:false)
+        div(class=`${selector}__value` style=(debug?`color:${type}`:false))
+            svg(viewbox=`0 0 ${width} ${width}` width=width height=width aria-hidden="true" focusable="false")
+                circle(stroke-width=stroke_width stroke-dasharray=max_stroke_dasharray stroke-linecap="round" fill="none" cx=center cy=center r=radius)
+                circle(stroke="currentColor" stroke-width=stroke_width stroke-dasharray=debug?"${stroke_dasharray}":stroke_dasharray stroke-linecap="round" fill="none" cx=center cy=center r=radius)
+        svg(class=`${selector}__icon` width="1em" height="1em" aria-hidden="true" focusable="false")
+            use(xlink:href=icon_loader('svgs/spr-icons.svg', `smile-${look}`))
+        div(class=`${selector}__title`)!= title
+
+
+
+
+//-
+    Returns ...
+    @param {String} text -
+    @param {String} checked -
+    @param {String} id -
+    @returns {String}
+mixin switchcontrol(text = '', checked = 'false', id = '')
+    -
+        const selector = 'cn-Switchcontrol';
+
+    button(class=selector type="button" aria-checked=checked id=id)
+        span(class=`${selector}__text`)!= text
+        span(class=`${selector}__icon` aria-hidden="true")

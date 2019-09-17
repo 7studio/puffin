@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Impassive</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Impassive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21,42 C9.402,42 0,32.598 0,21 C0,9.402 9.402,0 21,0 C32.598,0 42,9.402 42,21 C42,32.598 32.598,42 21,42 Z" id="Fill-75" fill="#FBD971"></path>
+        <path d="M16,13.5 C16,15.433 14.433,17 12.5,17 C10.567,17 9,15.433 9,13.5 C9,11.567 10.567,10 12.5,10 C14.433,10 16,11.567 16,13.5" id="Fill-87" fill="#AF8066"></path>
+        <path d="M32,13.5 C32,15.433 30.433,17 28.5,17 C26.567,17 25,15.433 25,13.5 C25,11.567 26.567,10 28.5,10 C30.433,10 32,11.567 32,13.5" id="Fill-88" fill="#AF8066"></path>
+        <path d="M10,29 L32,29" id="Stroke-112" stroke="#F0C419" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

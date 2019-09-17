@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/**
+ * Grid
+ */
+/**
+ * Headings
+ */
+/**
+ * Colors
+ */
+/**
+ * Breakpoints
+ */
+body::before {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  color: #fff;
+  content: var(--size);
+  font-family: monospace;
+  font-size: .75rem;
+  padding: .25em .5em;
+  position: fixed;
+  right: 0;
+  z-index: 101;
+}
+@media (min-width: 1602px) {
+  body {
+    --size: "1602px ≥ @XXL";
+  }
+}
+@media (min-width: 1289px) and (max-width: 1601px) {
+  body {
+    --size: "1289px ≥ @XL ≥ 1601px";
+  }
+}
+@media (min-width: 991px) and (max-width: 1288px) {
+  body {
+    --size: "991px ≥ @L ≥ 1288px";
+  }
+}
+@media (min-width: 615px) and (max-width: 990px) {
+  body {
+    --size: "615px ≥ @M ≥ 990px";
+  }
+}
+@media (min-width: 320px) and (max-width: 614px) {
+  body {
+    --size: "320px ≥ @S ≥ 614px";
+  }
+}
+@media (max-width: 319px) {
+  body {
+    --size: "@0 ≥ 319px";
+  }
+}
+[grid-debug] {
+  background-image: linear-gradient(to right, transparent 30px, rgba(250, 0, 150, 0.2) 30px) !important;
+  background-position: -15px 0 !important;
+  /*background-size: calc((100% + 30px) * 1 / 12) !important;*/
+  background-size: calc(100% * 1 / 12) !important;
+  background-clip: content-box !important;
+}
+
+/*# sourceMappingURL=debug.css.map */

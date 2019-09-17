@@ -1,0 +1,13 @@
+-
+  function money(value) {
+    return new Intl.NumberFormat('fr-FR',  {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 0
+    })
+    .format(value);
+  }
+
+  function number_format(value) {
+      return new Intl.NumberFormat('fr-FR', {style: 'decimal'}).format(value);
+  }

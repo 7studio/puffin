@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content />
+        <title>Index des maquettes Custom Name</title>
+        <script>
+            (function(html) {
+                html.className = html.className.replace(/\bno-js\b/, "js");
+            })(document.documentElement);
+        </script>
+        <style>
+            html {
+                font: 15px/1.467em Helvetica Neue, Roboto, sans-serif;
+                overflow-y: scroll;
+            }
+            body {
+                background-color: #f4f8fa;
+                color: #353535;
+                margin: 0;
+                padding: 2.933em 30px;
+            }
+
+            .cn-Grid {
+                align-items: flex-start;
+                display: flex;
+                flex-flow: row wrap;
+            }
+            [class$="cn-Grid__item"] {
+                box-sizing: border-box;
+                flex: 1 1 0;
+                padding: 0.733em 15px;
+                max-width: 100%;
+                width: 100%;
+            }
+            .cn-Grid__item--6 {
+                width: 50%;
+            }
+
+            @media screen and (max-width: 990px) {
+                .cn-Grid__item--12\@L {
+                    width: 100%;
+                }
+            }
+
+            .cn-Grid--nogutter {
+                margin: 0 !important;
+            }
+            .cn-Grid--nogutter > [class$="cn-Grid__item"] {
+                padding: 0 !important;
+            }
+
+            .cn-Tag {
+                border: 1px solid transparent;
+                border-radius: 0.8em;
+                color: #353535;
+                display: inline-block;
+                font: 400 1rem/1 Helvetica Neue, Roboto, sans-serif;
+                line-height: 1.467em;
+                padding: 0.067em 1.4em;
+                white-space: nowrap;
+            }
+            .cn-Tag::first-letter {
+                text-transform: uppercase;
+            }
+
+            .cn-Screens {
+                font-size: 1rem;
+            }
+            .cn-Screens__title {
+                font-size: 2.267em;
+                font-weight: 500;
+                line-height: 1.206em;
+                margin: 0 0 0.971em;
+            }
+            .cn-Screens__list {
+                list-style: none;
+                margin: 0;
+                padding: 0 0 0 60px;
+            }
+            .cn-Screens__item:not(:last-child) {
+                border-bottom: 1px solid #dee5e9;
+                margin: 0 0 calc(1.467em - 1px);
+                padding: 0 0 1.467em;
+            }
+
+            .cn-Screen {
+                align-items: baseline;
+                display: flex;
+                flex-flow: row wrap;
+                font-size: 1rem;
+            }
+            .cn-Screen__name {
+                flex: 1 1 0%;
+            }
+            .cn-Screen__link {
+                color: #4a90e2;
+            }
+            .cn-Screen__todo {
+                color: #798b95;
+                flex: 0 0 100%;
+                font-size: 0.933em;
+                font-style: italic;
+                margin: 0.393em 0 0;
+            }
+
+            .cn-Screen--deleted .cn-Screen__link {
+                opacity: 0.6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cn-Grid cn-Grid--nogutter">
+            <div class="cn-Grid__item--6 cn-Grid__item--12@L">
+                <div class="cn-Screens">
+                    <h1 class="cn-Screens__title">Index des maquettes</h1>
+                    <ul class="cn-Screens__list">
+                        <li class="cn-Screens__item">
+                            <div class="cn-Screen">
+                                <div class="cn-Screen__name">
+                                    <a
+                                        class="cn-Screen__link"
+                                        href="01-Desktop-Screen-Name.html"
+                                        >01-Desktop-Screen-Name</a
+                                    >
+                                </div>
+                                <div class="cn-Screen__status">
+                                    <span
+                                        class="cn-Tag"
+                                        style="background-color:#00e4bc"
+                                        >done</span
+                                    >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cn-Screens__item">
+                            <div class="cn-Screen">
+                                <div class="cn-Screen__name">
+                                    <a
+                                        class="cn-Screen__link"
+                                        href="02-Desktop-Screen-Name.html"
+                                        >02-Desktop-Screen-Name</a
+                                    >
+                                </div>
+                                <div class="cn-Screen__status">
+                                    <span
+                                        class="cn-Tag"
+                                        style="background-color:#c8f8ef"
+                                        >99%</span
+                                    >
+                                </div>
+                                <div class="cn-Screen__todo">
+                                    ToDo&nbsp;: Add shadows to indicate the
+                                    horizontal scroll
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cn-Screens__item">
+                            <div class="cn-Screen">
+                                <div class="cn-Screen__name">
+                                    <a
+                                        class="cn-Screen__link"
+                                        href="08-Desktop-Screen-Name.html"
+                                        >08-Desktop-Screen-Name</a
+                                    >
+                                </div>
+                                <div class="cn-Screen__status">
+                                    <span
+                                        class="cn-Tag"
+                                        style="background-color:#cfd3d7"
+                                        >awaiting</span
+                                    >
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

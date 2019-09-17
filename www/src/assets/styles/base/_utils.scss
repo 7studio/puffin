@@ -1,0 +1,152 @@
+// All utility classes follow the https://tailwindcss.com naming convention
+// with the prefix `cn-u-` for more interoperability.
+
+/**
+ * Generate utily classes for colors
+ */
+@each $cn-color-name, $cn-color-values in $cn-colors {
+  @if type-of($cn-color-values) == 'map' {
+    @each $cn-color-tone, $cn-color-value in $cn-color-values {
+      @if $cn-color-tone == 'default' {
+        $cn-color-tone: '';
+      }
+      .cn-u-color-#{$cn-color-name}#{$cn-color-tone} { color: $cn-color-value !important; }
+    }
+  }
+  @else {
+    .cn-u-color-#{$cn-color-name} { color: $cn-color-values !important; }
+  }
+}
+
+
+
+/**
+ * Layout: clearfix
+ */
+.cn-u-cf::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.cn-u-cfAlt {
+  overflow: hidden !important;
+}
+.cn-u-cfBi::before,
+.cn-u-cfBi::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ * Layout:
+ */
+.u-hidden,
+.cn-u-hidden,
+.cn-u-sr-only {
+  @include sr-only;
+}
+
+/**
+ * Layout: float
+ */
+.cn-u-float-left  {
+  float: left !important;
+}
+.cn-u-float-right {
+  float: right !important;
+}
+
+/**
+ * Layout: visibility
+ */
+ .cn-u-invisible { visibility: hidden !important; }
+
+
+
+/**
+ * Typography: horizontal text alignment
+ */
+.cn-u-text-center { text-align: center !important; }
+.cn-u-text-left { text-align: left !important; }
+.cn-u-text-right { text-align: right !important; }
+.cn-u-text-justify { text-align: justify !important; }
+
+/**
+ * Typography: vertical alignment
+ */
+.cn-u-valign-baseline	{ vertical-align: baseline !important; }
+.cn-u-valign-top { vertical-align: top !important; }
+.cn-u-valign-middle	{ vertical-align: middle !important; }
+.cn-u-valign-bottom	{ vertical-align: bottom !important; }
+.cn-u-valign-text-top	{ vertical-align: text-top !important; }
+.cn-u-valign-text-bottom { vertical-align: text-bottom !important; }
+
+/**
+ * Typography: text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+.u-textTruncate,
+.cn-u-text-truncate {
+  max-width: 100%; /* 1 */
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  text-overflow: ellipsis !important; /* 2 */
+}
+
+/**
+ * Typography: font Weight
+ */
+.cn-u-font-normal { font-weight: 400 !important; }
+
+/**
+ * Typography: whitespace
+ */
+.cn-u-whitespace-no-wrap { white-space: nowrap !important; }
+
+
+
+/**
+ * Spacing: margin
+ */
+.cn-u-mx {
+  &-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  @media screen and (max-width: #{map-deep-get($cn-breakpoints, "S", "max")}) {
+    &-0\@S {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+
+/**
+ * Sizing: width
+ */
+.cn-u-w {
+  &-10\/12 {
+    width: percentage(10 / 12) !important;
+  }
+
+  &-full {
+    width: 100% !important;
+  }
+
+  @media screen and (max-width: #{map-deep-get($cn-breakpoints, "S", "max")}) {
+    &-full\@S {
+      width: 100% !important;
+    }
+  }
+}

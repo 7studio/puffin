@@ -1,0 +1,27 @@
+@mixin sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+@mixin cn-color($name, $tone: '') {
+  color: cn-color($name, $tone);
+}
+
+@mixin cn-bgcolor($name, $tone: '') {
+  background-color: cn-color($name, $tone);
+}
+
+@mixin cn-heading($size) {
+  $font-map: cn-heading($size);
+  $font-size: map-get($font-map, 'font-size');
+
+  font-size: em($font-size);
+  font-weight: map-get($font-map, 'font-weight');
+  line-height: em(map-get($font-map, 'line-height'), $font-size);
+}

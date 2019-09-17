@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></g></symbol><symbol id="chevron-down" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></g></symbol><symbol id="chevron-left" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></g></symbol><symbol id="chevron-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></g></symbol><symbol id="drug-pill" viewBox="0 0 32 32">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/drug-pill" fill="currentColor" stroke="none">
+            <path d="M21.7676836,21.7676836 L13.9272883,29.6076251 C10.7362074,32.7985214 5.5743098,32.7955545 2.38871805,29.6101471 C-0.797574124,26.4240393 -0.795744526,21.2590447 2.39124013,18.0722445 L10.2319692,10.2319692 L18.0722445,2.39124013 C21.2590447,-0.795744526 26.4240393,-0.797574124 29.6101471,2.38871805 C32.7955545,5.5743098 32.7985214,10.7362074 29.6076251,13.9272883 L21.7676836,21.7676836 Z M17.5552002,21.5353806 L10.4639518,14.4445426 L4.61351142,20.2946444 C2.65347337,22.254569 2.65264619,25.4295173 4.61098934,27.3877472 C6.57067508,29.3473195 9.74272469,29.347404 11.705017,27.3852252 L17.5552002,21.5353806 Z" id="Combined-Shape"/>
+        </g>
+    </g>
+</symbol><symbol id="edit-2" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></g></symbol><symbol id="file-text" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></g></symbol><symbol id="info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="12" y1="16" x2="12" y2="12"/>
+    <line x1="12" y1="8" x2="12" y2="8"/>
+</g></symbol><symbol id="loading-circle" viewBox="0 0 24 24"><g fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></g></symbol><symbol id="pharmacross" viewBox="0 0 24 24">
+<g>
+	<path fill="currentColor" stroke="none" d="M14.7931042,3.0689657H9.1379318v4.8965521c0,0.6896548-0.5517244,1.3103442-1.3103447,1.3103442H3.0000002v5.6551733
+		h4.8965521c0.6896553,0,1.3103447,0.5517244,1.3103447,1.3103456v4.8965511h5.6551723v-4.8965511
+		c0-0.6896563,0.5517235-1.3103456,1.3103437-1.3103456h4.896553V9.2758627h-4.896553
+		c-0.6896544,0-1.3103437-0.5517244-1.3103437-1.3103447V3.0689657H14.7931042z M15.3448277,1
+		c1.034483,0,1.7931042,0.8275863,1.7931042,1.7931035v4.0689659h4.0689659C22.2413807,6.8620696,23,7.6896558,23,8.6551723
+		v6.6896553c0,1.034483-0.8275871,1.7931042-1.7931042,1.7931042h-4.0689659v4.0689659
+		C17.1379299,22.2413807,16.3103447,23,15.3448267,23H8.6551714c-1.034483,0-1.7931032-0.8275871-1.7931032-1.7931042v-4.0689659
+		h-4.068965C1.7586206,17.1379299,1,16.3103428,1,15.3448267V8.6551704C1,7.620688,1.8275863,6.8620677,2.7931035,6.8620677
+		h4.0689659v-4.068964c0-1.0344828,0.8275857-1.7931036,1.7931037-1.7931036C8.6551733,1.0000001,15.3448277,1.0000001,15.3448277,1
+		z"/>
+</g>
+</symbol><symbol id="plus-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></g></symbol><symbol id="save" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></g></symbol><symbol id="search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></g></symbol><symbol id="settings" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></g></symbol><symbol id="smile-happy" viewBox="0 0 42 42">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Happy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Happy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M42,21 C42,32.598 32.598,42 21,42 C9.402,42 0,32.598 0,21 C0,9.402 9.402,0 21,0 C32.598,0 42,9.402 42,21" id="Fill-70" fill="#FBD971"/>
+        <path d="M32,24 C32,30.075 27.075,35 21,35 C14.925,35 10,30.075 10,24" id="Path" stroke="#F0C419" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8,16 C8,13.791 9.791,12 12,12 C14.209,12 16,13.791 16,16" id="Path" stroke="#F29C1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26,16 C26,13.791 27.791,12 30,12 C32.209,12 34,13.791 34,16" id="Path" stroke="#F29C1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</symbol><symbol id="smile-impassive" viewBox="0 0 42 42">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Impassive</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Impassive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21,42 C9.402,42 0,32.598 0,21 C0,9.402 9.402,0 21,0 C32.598,0 42,9.402 42,21 C42,32.598 32.598,42 21,42 Z" id="Fill-75" fill="#FBD971"/>
+        <path d="M16,13.5 C16,15.433 14.433,17 12.5,17 C10.567,17 9,15.433 9,13.5 C9,11.567 10.567,10 12.5,10 C14.433,10 16,11.567 16,13.5" id="Fill-87" fill="#AF8066"/>
+        <path d="M32,13.5 C32,15.433 30.433,17 28.5,17 C26.567,17 25,15.433 25,13.5 C25,11.567 26.567,10 28.5,10 C30.433,10 32,11.567 32,13.5" id="Fill-88" fill="#AF8066"/>
+        <path d="M10,29 L32,29" id="Stroke-112" stroke="#F0C419" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</symbol><symbol id="smile-sad" viewBox="0 0 42 42">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Sad</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Sad" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M42,21 C42,32.598 32.598,42 21,42 C9.402,42 0,32.598 0,21 C0,9.402 9.402,0 21,0 C32.598,0 42,9.402 42,21" id="Fill-72" fill="#FBD971"/>
+        <path d="M16.5,13.5 C16.5,15.433 14.933,17 13,17 C11.067,17 9.5,15.433 9.5,13.5 C9.5,11.567 11.067,10 13,10 C14.933,10 16.5,11.567 16.5,13.5" id="Fill-81" fill="#AF8066"/>
+        <path d="M32.5,13.5 C32.5,15.433 30.933,17 29,17 C27.067,17 25.5,15.433 25.5,13.5 C25.5,11.567 27.067,10 29,10 C30.933,10 32.5,11.567 32.5,13.5" id="Fill-82" fill="#AF8066"/>
+        <path d="M10,34 C10,27.925 14.925,23 21,23 C27.075,23 32,27.925 32,34" id="Stroke-98" stroke="#F0C419" stroke-width="2" stroke-linecap="round"/>
+    </g>
+</symbol><symbol id="trash-2" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></g></symbol><symbol id="user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></g></symbol><symbol id="users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></g></symbol><symbol id="x-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></g></symbol><symbol id="x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></g></symbol></svg>

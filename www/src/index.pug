@@ -1,0 +1,145 @@
+include /abstracts/functions.pug
+include /abstracts/mixins.pug
+
+-
+    const screens = [
+        { name: '01-Desktop-Screen-Name', status: 'done' },
+        { name: '02-Desktop-Screen-Name', status: '99%', todo: 'Add shadows to indicate the horizontal scroll' },
+        { name: '08-Desktop-Screen-Name', status: 'awaiting' }
+    ];
+
+    const statusColors = {
+        default: '#c8f8ef',
+        pending: '#fcbb71',
+        done: '#00e4bc',
+        blocked: '#eb5a46',
+        awaiting: '#cfd3d7',
+        deleted: '#f0f4f6'
+    };
+
+doctype html
+html(
+    lang="fr"
+    dir="ltr"
+    class="no-js"
+)
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content="")
+
+        title Index des maquettes Custom Name
+
+        script.
+            (function(html){html.className=html.className.replace(/\bno-js\b/,"js")})(document.documentElement)
+
+        style.
+            html {
+                font: 15px/1.467em Helvetica Neue, Roboto, sans-serif;
+                overflow-y: scroll;
+            }
+            body {
+                background-color: #f4f8fa;
+                color: #353535;
+                margin: 0;
+                padding: 2.933em 30px;
+            }
+
+            .cn-Grid {
+                align-items: flex-start;
+                display: flex;
+                flex-flow: row wrap;
+            }
+            [class$="cn-Grid__item"] {
+                box-sizing: border-box;
+                flex: 1 1 0;
+                padding: .733em 15px;
+                max-width: 100%;
+                width: 100%;
+            }
+            .cn-Grid__item--6 { width: 50%; }
+
+            @media screen and (max-width: 990px) {
+                .cn-Grid__item--12\@L { width: 100%; }
+            }
+
+            .cn-Grid--nogutter {
+                margin: 0 !important;
+            }
+            .cn-Grid--nogutter > [class$="cn-Grid__item"] {
+                padding: 0 !important;
+            }
+
+            .cn-Tag {
+                border: 1px solid transparent;
+                border-radius: 0.8em;
+                color: #353535;
+                display: inline-block;
+                font: 400 1rem/1 Helvetica Neue, Roboto, sans-serif;
+                line-height: 1.467em;
+                padding: 0.067em 1.4em;
+                white-space: nowrap;
+            }
+            .cn-Tag::first-letter { text-transform: uppercase; }
+
+            .cn-Screens {
+                font-size: 1rem;
+            }
+            .cn-Screens__title {
+                font-size: 2.267em;
+                font-weight: 500;
+                line-height: 1.206em;
+                margin: 0 0 .971em;
+            }
+            .cn-Screens__list {
+                list-style: none;
+                margin: 0;
+                padding: 0 0 0 60px;
+            }
+            .cn-Screens__item:not(:last-child) {
+                border-bottom: 1px solid #dee5e9;
+                margin: 0 0 calc(1.467em - 1px);
+                padding: 0 0 1.467em;
+            }
+
+            .cn-Screen {
+                align-items: baseline;
+                display: flex;
+                flex-flow: row wrap;
+                font-size: 1rem;
+            }
+            .cn-Screen__name {
+                flex: 1 1 0%;
+            }
+            .cn-Screen__link {
+                color: #4a90e2;
+            }
+            .cn-Screen__todo {
+                color: #798b95;
+                flex: 0 0 100%;
+                font-size: .933em;
+                font-style: italic;
+                margin: .393em 0 0;
+            }
+
+            .cn-Screen--deleted .cn-Screen__link {
+                opacity: .6;
+            }
+
+    body
+        .cn-Grid.cn-Grid--nogutter
+            .cn-Grid__item--6(class="cn-Grid__item--12@L")
+                .cn-Screens
+                    h1.cn-Screens__title Index des maquettes
+                    ul.cn-Screens__list
+                        each screen in screens
+                            - const statusColor = statusColors[screen.status] || statusColors.default;
+                            li.cn-Screens__item
+                                .cn-Screen(class={'cn-Screen--deleted': screen.status=='deleted'})
+                                    .cn-Screen__name
+                                        a.cn-Screen__link(href=screen.status=='deleted'?false:`${screen.name}.html`)= screen.name
+                                    .cn-Screen__status
+                                        span.cn-Tag(style=`background-color:${statusColor}`)= screen.status
+                                    if screen.todo
+                                        .cn-Screen__todo ToDo&nbsp;: !{screen.todo}

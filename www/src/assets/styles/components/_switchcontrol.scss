@@ -1,0 +1,83 @@
+$switchcontrol-selector: cn-Switchcontrol;
+
+$switchcontrol-colors: (
+  default: cn-color('secondary'),
+  checked: cn-color('warning')
+) !default;
+$switchcontrol-fontFamily: $cn-base-fontFamily !default;
+$switchcontrol-fontSize: $cn-base-fontSize !default;
+$switchcontrol-lineHeight: $cn-base-lineHeight !default;
+
+.#{$switchcontrol-selector} {
+  // This
+  $this: &;
+
+  // Styles
+  background-color: transparent;
+  border: 0;
+  border-radius: em(($switchcontrol-lineHeight * 1.25) / 2, $switchcontrol-fontSize);
+  cursor: pointer;
+  font: 400 #{rem($switchcontrol-fontSize)}/#{em($switchcontrol-lineHeight, $switchcontrol-fontSize)} #{$switchcontrol-fontFamily};
+  padding: 0;
+  vertical-align: middle;
+
+  /*span*/&__icon {
+    background-color: #fff;
+    border: 1px solid cn-color('gray', 30);
+    border-radius: em(($switchcontrol-lineHeight * 1.25) / 2, $switchcontrol-fontSize);
+    box-sizing: border-box;
+    display: block;
+    height: em($switchcontrol-lineHeight * 1.25, $switchcontrol-fontSize);
+    position: relative;
+    transition: background-color .2s, border-color .2s;
+    width: em((($switchcontrol-lineHeight * 1.25) - 2px) * 2, $switchcontrol-fontSize);
+
+    &::before {
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .28);
+      content: "";
+      height: em(($switchcontrol-lineHeight * 1.25) - 2px, $switchcontrol-fontSize);
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(0);
+      transition: transform .4s;
+      width: em(($switchcontrol-lineHeight * 1.25) - 2px, $switchcontrol-fontSize);
+    }
+
+    &::after {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#{encoreURIColor(#fff)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") 50% / 100% 100% no-repeat;
+      content: "";
+      height: 1em;
+      left: em( ((((($switchcontrol-lineHeight * 1.25) - 2px) * 2) / 2) - $switchcontrol-fontSize) / 2, $switchcontrol-fontSize);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1em;
+    }
+  }
+  &__text {
+    @include sr-only;
+  }
+
+  &:focus {
+    box-shadow: 0 0 .25em 0 cn-color('gray', 40);
+    outline: none;
+  }
+
+  &[aria-checked="true"] & {
+    &__icon {
+      background-color: #4CD964;
+      border-color: #4CD964;
+
+      &::before {
+        transform: translateX(100%) translateX(-1px);
+      }
+    }
+  }
+
+  &[aria-checked="true"]:focus {
+    box-shadow: 0 0 .25em 0 #4CD964;
+  }
+}

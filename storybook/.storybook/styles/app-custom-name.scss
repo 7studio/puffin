@@ -1,0 +1,318 @@
+@import "abstracts/**/*.scss";
+@import "../../../www/node_modules/normalize.css/normalize.css";
+@import "base/fonts.css";
+@import "base/**/*.scss";
+@import "components/**/*.scss";
+@import "layout/**/*.scss";
+
+
+
+html {
+  font-size: $cn-base-fontSize;
+
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background-color: $cn-base-bgColor;
+  color: $cn-base-color;
+  font: $cn-base-font;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: cn-color('gray', 60);
+  opacity: 1;
+  white-space: normal;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: cn-color('gray', 60);
+  opacity: 1;
+  white-space: normal;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: cn-color('gray', 60);
+  opacity: 1;
+  white-space: normal;
+}
+
+
+
+.sb-u-mb-0 { margin-bottom: 0 !important; }
+.sb-u-mb-1 { margin-bottom: rem($cn-base-lineHeight * .25) !important; }
+.sb-u-mb-2 { margin-bottom: rem($cn-base-lineHeight * .5) !important; }
+.sb-u-mb-3 { margin-bottom: rem($cn-base-lineHeight * .75) !important; }
+.sb-u-mb-4 { margin-bottom: rem($cn-base-lineHeight) !important; }
+.sb-u-mb-8 { margin-bottom: rem($cn-base-lineHeight * 2) !important; }
+
+.sb-u-px-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.sb-Root {
+  margin: 0 auto;
+  max-width: $cn-content-width;
+  padding: em($cn-base-lineHeight * 1.75) $cn-grid-columnGap em($cn-base-lineHeight * 3.5);
+  width: 100%;
+}
+
+.sb-Grid {
+  // This
+  $this: &;
+
+  // Local variables
+  $columns: 12;
+  $row-gap: $cn-grid-rowGap;
+  $column-gap: $cn-grid-columnGap;
+
+  // Styles
+  align-items: flex-start;
+  display: flex;
+  font-size: 1rem;
+  flex-flow: row wrap;
+  margin: (-.5 * $row-gap) (-.5 * $column-gap);
+
+  // Modifiers
+  &--nogutter {
+    margin: 0 !important;
+
+    & > #{$this}__item {
+      padding: 0 !important;
+    }
+  }
+
+  &--equalheight {
+    align-items: stretch !important;
+
+    & > #{$this}__item {
+      display: flex;
+    }
+  }
+
+  &--reverse { flex-direction: row-reverse; }
+
+  &--align-center { justify-content: center; }
+  &--align-justify { justify-content: space-around; }
+
+  &[class$="col"] > &__item {
+    flex: 0 0 auto;
+  }
+
+  @for $i from 1 through $columns {
+    $v: $columns / $i;
+
+    @if (round($v) == $v and $i != $columns) {
+      $w: percentage(1 / $i);
+      $s: "";
+
+      @if ($i > 1) {
+        $s: "s";
+      }
+
+      &--#{$i}col#{$s} > &__item {
+        flex: 0 0 auto;
+        width: $w;
+      }
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    flex: 1 1 0;
+    padding: ($row-gap / 2) ($column-gap / 2);
+    max-width: 100%;
+    width: 100%;
+
+    @for $i from 1 through $columns {
+      $w: percentage($i / $columns);
+
+      &--span-#{$i} {
+        flex: 0 0 auto;
+        width: $w;
+        grid-column: auto / span #{$i};
+      }
+    }
+
+    &--alignselfEnd {
+      margin-left: auto;
+    }
+
+    &--auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+}
+
+.sb-Heading {
+  // This
+  $this: &;
+
+  // Styles
+  display: block;
+  border-bottom: 1px solid cn-color('gray', 30);
+
+  // Modifiers
+  @each $id in ("xlarge", "large", "medium", "small") {
+    &--#{$id} {
+      $font-size: cn-heading($id, 'font-size');
+
+      @include cn-heading($id);
+
+      margin: 0 0 em($cn-base-lineHeight, $font-size);
+      padding: 0 0 em(($cn-base-lineHeight / 4), $font-size);
+    }
+  }
+
+  &--small {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+
+/*div*/.sb-ColorSample {
+  $this: &;
+
+  align-items: center;
+  background-color: currentColor;
+  display: flex;
+  justify-content: center;
+  width: auto;
+
+  &::before {
+    content: "";
+    flex: 0 0 0;
+    padding: 0 0 em($cn-base-lineHeight * 3);
+    width: 0;
+  }
+
+  &__name {
+    color: #fff;
+    flex: 0 0 auto;
+    font-size: em($cn-base-fontSize);
+    line-height: em($cn-base-lineHeight);
+    padding: 0 em($cn-grid-columnGap / 4);
+    
+    @at-root a#{&} {
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*table*/.sb-Color {
+  // This
+  $this: &;
+
+  // Styles
+  border-collapse: collapse;
+  font-size: 1rem;
+  table-layout: fixed;
+  width: 100%;
+  
+  /*thead*/&__header {
+    background-color: currentColor;
+    background-clip: padding-box;
+    border-bottom: 2px solid $cn-base-bgColor;
+  }
+
+  /*tr*/&__name {
+    $font-size: cn-heading('small', 'font-size');
+
+    @include cn-heading('small');
+    
+    padding: em($cn-base-lineHeight, $font-size) em($cn-grid-columnGap / 2, $font-size);
+  }
+
+  &__variation {
+    background-color: currentColor;
+
+    th, td {
+      padding: em($cn-base-lineHeight / 2) em($cn-grid-columnGap / 2);
+    }
+
+    th small {
+      font-weight: 400;
+    }
+  }
+}
+
+/*div*/.sb-Icon {
+  // This
+  $this: &;
+
+  // Styles
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1rem;
+  justify-content: center;
+
+  &__media {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 4em;
+
+    &::before {
+      content: "";
+      flex: 0 0 0;
+      padding: 100% 0 0;
+      width: 0;
+    }
+  }
+}
+
+/*div*/.sb-Typo {
+  // This
+  $this: &;
+
+  // Styles
+  font-size: 1rem;
+
+  &__name {
+    color: cn-color('gray', 60);
+    font-size: em(13px);
+    margin: 0 0 em($cn-base-lineHeight / 4);
+    text-transform: uppercase;
+
+    span {
+      font-size: 1em;
+      text-transform: none;
+    }
+  }
+}
+
+/*div*/.sb-FakeContent {
+  // This
+  $this: &;
+
+  // Styles
+  background-color: cn-color('secondary');
+  border-radius: $cn-base-borderRadius;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 1rem;
+  padding: em($cn-base-lineHeight) em($cn-grid-columnGap);
+  text-align: center;
+  width: 100%;
+
+  &--auto {
+    background-color: cn-color('gray', 30);
+    color: $cn-base-color;
+  }
+}

@@ -1,0 +1,57 @@
+include /abstracts/functions.pug
+include /abstracts/mixins.pug
+
+-
+    function sortVariation(arr) {
+        return arr.sort((a, b) => b.localeCompare(a)).sort((a, b) => a === 'default' ? -1 : a - b);
+    }
+
+    function ucfirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+.sb-Root
+    h1.sb-Heading.sb-Heading--large Color system
+
+
+    h2.sb-Heading.sb-Heading--medium Color palette
+    ul.sb-Grid.sb-Grid--8cols.sb-u-mb-4
+        each variations, color in styles.colors
+            li.sb-Grid__item
+                .sb-ColorSample(class=`cn-u-color-${(typeof variations!=='string'?variations.default?color:`${color}100`:color)}`)
+                    .sb-ColorSample__name(style={color:isLightColor((typeof variations!=='string'?variations.default||variations["100"]:variations))?'#000':'#fff'})!= ucfirst(color)
+
+
+    h2.sb-Heading.sb-Heading--medium Color utilities
+    ul.sb-Grid.sb-Grid--2cols
+
+        each variations, color in styles.colors
+            if (typeof variations !== 'string')
+                li.sb-Grid__item
+                    table.sb-Color
+                        thead.sb-Color__header(class=`cn-u-color-${color}`)
+                            tr
+                                th.sb-Color__name(colspan="24" style={color:isLightColor(value)?'#000':'#fff'})!= ucfirst(color)
+                        tbody.sb-Color__variations
+                            each variation in sortVariation(Object.keys(variations))
+                                - var value = styles.colors[color][variation];
+                                if variation === 'default'
+                                    tr.sb-Color__variation(class=`cn-u-color-${color}`)
+                                        th(style={color:isLightColor(value)?'#000':'#fff'} colspan="16")
+                                            small scss&nbsp;&nbsp;&nbsp;
+                                            code!=`cn-color('${color}')`
+                                            br
+                                            small css&nbsp;&nbsp;&nbsp;&nbsp;
+                                            code!=`.cn-u-color-${color}`
+                                        td(style={color:isLightColor(value)?'#000':'#fff'} colspan="8")
+                                            code!= value
+                                else
+                                    tr.sb-Color__variation(class=`cn-u-color-${color}${variation}`)
+                                        th(style={color:isLightColor(value)?'#000':'#fff'} colspan="16")
+                                            small scss&nbsp;&nbsp;&nbsp;
+                                            code!=`cn-color('${color}', ${isNaN(parseInt(variation, 10)) ? `'${variation}'`: variation})`
+                                            br
+                                            small css&nbsp;&nbsp;&nbsp;&nbsp;
+                                            code!=`.cn-u-color-${color}${variation}`
+                                        td(style={color:isLightColor(value)?'#000':'#fff'} colspan="8")
+                                            code!= value

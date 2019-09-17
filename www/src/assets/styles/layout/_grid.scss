@@ -1,0 +1,198 @@
+$grid-selector: cn-Grid;
+
+.#{$grid-selector} {
+  // This
+  $this: &;
+
+  // Styles
+  align-items: flex-start;
+  display: flex;
+  font-size: 1rem;
+  flex-flow: row wrap;
+  margin: (-.5 * $cn-grid-rowGap) (-.5 * $cn-grid-columnGap);
+
+  // Modifiers
+  &--dense {
+    align-items: stretch;
+
+    & > #{$this}__item {
+      display: flex;
+    }
+
+    @supports (grid-auto-flow: dense) and (grid-auto-rows: #{em($cn-base-lineHeight)}) {
+      display: grid;
+      grid-gap: $cn-grid-rowGap $cn-grid-columnGap;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: em($cn-base-lineHeight);
+      grid-auto-flow: dense;
+      margin: 0 !important;
+
+      > #{$this}__item {
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100%;
+        padding: 0 !important;
+        width: 100% !important;
+
+        > * {
+          box-sizing: border-box;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &--nogutter {
+    margin: 0 !important;
+
+    & > #{$this}__item {
+      padding: 0 !important;
+    }
+  }
+
+  &--equalheight {
+    align-items: stretch !important;
+
+    & > #{$this}__item {
+      display: flex;
+    }
+  }
+
+  &--reverse { flex-direction: row-reverse; }
+
+  &--align-center { justify-content: center; }
+  &--align-justify { justify-content: space-around; }
+
+  &--smallgap {
+    margin: (-.5 * $cn-grid-small-rowGap) (-.5 * $cn-grid-small-columnGap);
+
+    & > #{$this}__item {
+      padding: ($cn-grid-small-rowGap / 2) ($cn-grid-small-columnGap / 2);
+    }
+  }
+
+  &[class$="col"] > &__item {
+    flex: 0 0 auto;
+  }
+
+  @for $i from 1 through $cn-grid-columns {
+    $v: $cn-grid-columns / $i;
+
+    @if (round($v) == $v and $i != $cn-grid-columns) {
+      $w: percentage(1 / $i);
+      $s: "";
+
+      @if ($i > 1) {
+        $s: "s";
+      }
+
+      &--#{$i}col#{$s} > &__item {
+        flex: 0 0 auto;
+        width: $w;
+      }
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    flex: 1 1 0;
+    padding: ($cn-grid-rowGap / 2) ($cn-grid-columnGap / 2);
+    max-width: 100%;
+    width: 100%;
+
+    @for $i from 1 through $cn-grid-columns {
+      $w: percentage($i / $cn-grid-columns);
+
+      &--span-#{$i} {
+        flex: 0 0 auto;
+        width: $w;
+        grid-column: auto / span #{$i};
+      }
+    }
+
+    &--alignselfEnd {
+      margin-left: auto;
+    }
+
+    &--auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+}
+
+@each $ID, $limits in $cn-breakpoints {
+  // $media: ();
+
+  // @each $name, $value in $limits {
+  //   $media: append($media, "(#{$name}-width: #{$value})");
+  // }
+
+  // $media: to-string($media, " and ");
+
+  $media: "";
+  $max_width: map-get($limits, "max");
+  @if ($max_width != null) {
+    $media: "(max-width: #{$max_width})";
+  } @else {
+    $min_width: map-get($limits, "min");
+    $media: "(min-width: #{$min_width})";
+  }
+
+
+  @media #{$media} {
+    .#{$grid-selector} {
+      $this: &;
+
+      @for $i from 1 through $cn-grid-columns {
+        $v: $cn-grid-columns / $i;
+
+        @if (round($v) == $v and $i != $cn-grid-columns) {
+          $w: percentage(1 / $i);
+          $s: "";
+
+          @if ($i > 1) {
+            $s: "s";
+          }
+
+          &--#{$i}col#{$s}\@#{$ID} > &__item {
+            width: $w;
+          }
+        }
+      }
+
+      &__item {
+        @for $i from 0 through $cn-grid-columns {
+          $w: percentage($i / $cn-grid-columns);
+
+          &--span-#{$i}\@#{$ID} {
+            @if $i > 0 {
+              flex: 0 0 auto;
+              width: $w;
+              grid-column: auto / span #{$i};
+            } @else {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// Small gaps modifier
+@media screen and (max-width: #{map-deep-get($cn-custom-breakpoints, "burgerMenu", "max")}) {
+  .#{$grid-selector} {
+    margin: (-.5 * $cn-grid-small-rowGap) (-.5 * $cn-grid-small-columnGap);
+
+    &__item {
+      padding: ($cn-grid-small-rowGap / 2) ($cn-grid-small-columnGap / 2);
+    }
+
+    &--dense {
+      grid-gap: $cn-grid-small-rowGap $cn-grid-small-columnGap;
+    }
+  }
+}

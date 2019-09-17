@@ -1,0 +1,60 @@
+/**
+ * Steps to process fonts correctly:
+ *
+ * 1. Go on https://www.fontsquirrel.com/tools/webfont-generator
+ * 2. Upload the `/src/assets/fonts/generator_config.txt` config file
+ * 3. Upload your fonts
+ * 4. Install them into `/src/assets/fonts/` following these guidelines
+ *    https://github.com/7studio/bichoco-font-faces
+ *
+ *
+ * Don't forget to define the `unicode-range` descriptor as much as possible
+ * to optimise the fonts loading.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range
+ * https://github.com/ben-eb/postcss-unicode-characters
+ */
+
+
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/regular.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/medium.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/medium-italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/medium-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/bold.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/bold-italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/bold-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}

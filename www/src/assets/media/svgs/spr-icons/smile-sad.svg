@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Sad</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Sad" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M42,21 C42,32.598 32.598,42 21,42 C9.402,42 0,32.598 0,21 C0,9.402 9.402,0 21,0 C32.598,0 42,9.402 42,21" id="Fill-72" fill="#FBD971"></path>
+        <path d="M16.5,13.5 C16.5,15.433 14.933,17 13,17 C11.067,17 9.5,15.433 9.5,13.5 C9.5,11.567 11.067,10 13,10 C14.933,10 16.5,11.567 16.5,13.5" id="Fill-81" fill="#AF8066"></path>
+        <path d="M32.5,13.5 C32.5,15.433 30.933,17 29,17 C27.067,17 25.5,15.433 25.5,13.5 C25.5,11.567 27.067,10 29,10 C30.933,10 32.5,11.567 32.5,13.5" id="Fill-82" fill="#AF8066"></path>
+        <path d="M10,34 C10,27.925 14.925,23 21,23 C27.075,23 32,27.925 32,34" id="Stroke-98" stroke="#F0C419" stroke-width="2" stroke-linecap="round"></path>
+    </g>
+</svg>

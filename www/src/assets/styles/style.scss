@@ -1,0 +1,42 @@
+
+@import "abstracts/**/*.scss";
+@import "~normalize.css";
+@import "base/**/*.{css,scss}";
+@import "components/**/*.scss";
+@import "layout/**/*.scss";
+
+
+
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: $cn-base-fontSize;
+
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background-color: $cn-base-bgColor;
+  color: $cn-base-color;
+  font: $cn-base-font;
+}
+
+
+/**
+ * Override `base/_base.scss` to match design.
+ */
+b,
+strong {
+  font-weight: 500;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: cn-color('gray', 60);
+  opacity: 1;
+  white-space: normal;
+}
+
+

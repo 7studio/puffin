@@ -1,0 +1,149 @@
+/// Encode hexa color to be used into data URI
+/// @param {Color} $colour -
+/// @return {String} -
+ @function encoreURIColor($colour) {
+  @return '%23' + str-slice('#{$colour}', 2, -1);
+}
+
+/// Add one or more elements to the beginning of a list
+/// @link https://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/#prepending-value-to-list
+/// @param {List} $list -
+/// @param {List} $value -
+/// @return {List} -
+@function prepend($list, $value) {
+  @return join($value, $list);
+}
+
+/// Create a string by concatenating all of the elements in a list
+/// @link https://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/#convert-a-list-into-a-string
+/// @param {List} $list -
+/// @param {String} $glue -
+/// @param {Bool} $is-nested -
+/// @return {String} -
+@function to-string($list, $glue: '', $is-nested: false) {
+  $result: null;
+
+  @for $i from 1 through length($list) {
+    $e: nth($list, $i);
+
+    @if type-of($e) == list {
+      $result: $result#{to-string($e, $glue, true)};
+    } @else {
+      $result: if(
+        $i != length($list) or $is-nested,
+        $result#{$e}#{$glue},
+        $result#{$e}
+      );
+    }
+  }
+
+  @return $result;
+}
+
+/// Convert pixels value into em according to specific context
+/// @param {Number} $pixels -
+/// @param {Number} $context -
+/// @return {Number} -
+@function em($pixels, $context: $cn-base-fontSize) {
+  @return ($pixels / $context) * 1em;
+}
+
+/// Convert pixels value into rem according to the root font size
+/// defined by `$cn-base-fontSize` in `_variables.scss`
+/// @param {Number} $pixels -
+/// @return {Number} -
+@function rem($pixels) {
+  @return ($pixels / $cn-base-fontSize) * 1rem;
+}
+
+/// Remove the unit of a length
+/// @link https://hugogiraudel.com/2013/08/12/sass-functions/#strip-unit-function
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+///
+/// @link https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+/// @param {Number} $max -
+/// @param {Number} $min -
+/// @param {Number} $media-max -
+/// @param {Number} $media-min -
+/// @param {String} $unit -
+/// @param {String} $size -
+/// @return {Number} -
+@function fluid-value($max, $min, $media-max, $media-min, $unit: 'em', $size: 'w') {
+  $min-w-unit: _length(em($min), $unit);
+  $min: strip-unit($min-w-unit);
+  $max: strip-unit(em($max));
+
+  $media-min-w-unit: rem($media-min);
+  $media-min: strip-unit($media-min-w-unit);
+  $media-max: strip-unit(em($media-max));
+
+  @return calc(#{$min-w-unit} + #{($max - $min)} * ((#{_length(100, v#{$size})} - #{$media-min-w-unit}) / #{($media-max - $media-min)}));
+}
+
+/// Change the value unit
+/// @link https://hugogiraudel.com/2014/01/15/sass-string-to-number/#dealing-with-css-lengths
+/// @param {Number} $number -
+/// @param {String} $unit -
+/// @return {Number} -
+@function _length($number, $unit) {
+  $strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
+  $units: 1px 1cm 1mm 1% 1ch 1pica 1in 1em 1rem 1pt 1pc 1ex 1vw 1vh 1vmin 1vmax;
+  $index: index($strings, $unit);
+
+  @if not $index {
+    @warn "Unknown unit `#{$unit}`.";
+    @return false;
+  }
+
+  @return strip-unit($number) * nth($units, $index);
+}
+
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+      $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/// Retreive color
+/// @param {String} $color - Name of the color
+/// @param {String} $tone - 10 to 140
+/// @return {String} Hexadecimal code color
+@function cn-color($name, $tone: '') {
+  @if ($tone != '') {
+    @return map-deep-get($cn-colors, $name, $tone);
+  }
+
+  @if (type-of(map-get($cn-colors, $name)) == 'map') {
+    @return map-deep-get($cn-colors, $name, 'default');
+  }
+
+  @return map-get($cn-colors, $name);
+}
+
+/// Retreive font properties
+/// @param {String} $size - Name of the text size
+/// @param {String} $property - CSS property name
+/// @return {*} - Desired value
+@function cn-heading($size, $property: '') {
+  @if ($property != '') {
+    @return map-deep-get($cn-headings, $size, $property);
+  }
+
+  @return map-get($cn-headings, $size);
+}

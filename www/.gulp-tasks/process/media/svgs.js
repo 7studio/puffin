@@ -16,6 +16,7 @@ export default (gulp, done) => {
     const sprites = glob.sync('src/assets/media/svgs/**/spr-*/');
     const tasks = sprites.map((sprite) => {
         const destpath = path.dirname(sprite).replace(/src\/assets/, 'dist/assets');
+        const spritename = `${path.basename(sprite)}.svg` ;
 
         return gulp.src([
                 path.join(sprite, '/**/*.svg'),
@@ -39,6 +40,7 @@ export default (gulp, done) => {
                 parserOptions: { xmlMode: true }
             }))
             .pipe($.svgstore({ inlineSvg: true }))
+            .pipe($.rename(spritename))
             .pipe(gulp.dest(destpath));
     });
 

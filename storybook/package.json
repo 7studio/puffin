@@ -54,7 +54,7 @@
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.0.0",
     "postcss-url": "^8.0.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-bemify": "^1.1.0",
     "pug-html-loader": "^1.1.5",
     "pug-loader": "^2.4.0",
